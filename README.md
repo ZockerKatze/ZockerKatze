@@ -1,6 +1,6 @@
 # 👋 Hello, World! I'm Rattatwinko
 
-Or, if you prefer, you can call me by my old username: **ZockerKatze**! 🐱
+Or, if you prefer, you can call me by my old username: **ZockerKatze / Rattawingo**! 🐱
 
 ## 👨‍💻 About [Me](https://i.pinimg.com/736x/27/8a/3c/278a3cd27056abb5d7f9fc6b6facde94.jpg)
 - 🐍 **Python**: My go-to programming language for most projects.
