@@ -6,6 +6,12 @@
   <img src="https://camo.githubusercontent.com/3937bb8bbd096b607773304957e2b36bae38f8b0ed5326f5b5691e0bb0b774c7/68747470733a2f2f6769746875622d726561646d652d73746174732e76657263656c2e6170702f6170693f757365726e616d653d5a6f636b65724b61747a652673686f775f69636f6e733d74727565267468656d653d7261646963616c" alt="GitHub Profile Stats" align="right"/>
 </p>
 
+
+
+
+<p></p>
+
+
 - 🔫 I’m currently working on [TGTG-APIapp && RSS-Parser](https://github.com/ZockerKatze/rssparser)
 
 - 🌱 I’m currently learning **javascript, c, cpp**
