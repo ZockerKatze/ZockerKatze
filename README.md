@@ -12,21 +12,19 @@
   </tr>
 </table>
 
-- 🔫 I’m currently working on [TGTG-APIapp && RSS-Parser](https://github.com/ZockerKatze/rssparser)
+- 🔫 I’m currently working on [60 Days of Pyhton / C++](https://github.com/ZockerKatze/60dpy)
 
-- 🌱 I’m currently learning **javascript, c, cpp**
+- 🌱 I’m currently learning **C / C++**
 
 - 👯️ I’m looking to collaborate on **TGTG-API**
 
-- 🤝 I’m looking for help with **My Life xD**
-
 - 👨‍💻 All of my projects are available at [github.com/ZockerKatze](https://github.com/ZockerKatze)
 
-- 💬 Ask me about **nothing pls**
+- 💬 Ask me about **The TGTG-API**
 
-- 📧 How to reach me **Discord: rattatwinko**
+- 📧 How to reach me: **"rattatwinko" on Discord**
 
-- ⚡ NotSoFun fact **harambe is ded**
+- ⚡ Fun Fact **typeof NaN is "number"**
 
 <h3 align="left">Languages and Tools:</h3>
 <p align="left"> 
