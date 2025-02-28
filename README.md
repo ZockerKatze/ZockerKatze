@@ -12,7 +12,7 @@
   </tr>
 </table>
 
-- 🔫 I’m currently working on [60 Days of Pyhton / C++](https://github.com/ZockerKatze/60dpy)
+- 🔫 I’m currently working on PfandApp
 
 - 🌱 I’m currently learning **C / C++**
 
