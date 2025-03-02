@@ -151,7 +151,7 @@ h1 {
 }
 
 .skills-list i {
-    font-size: 1.2em;
+    margin-right: 5px;
 }
 
 /* Language emoji alignment */
@@ -189,19 +189,10 @@ li {
     line-height: 1.6;
 }
 
-.github-stats {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    gap: 20px; 
-    flex-wrap: wrap;
-}
-
-.github-stats img {
-    max-width: 45%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
 }
 
 @media (max-width: 800px) {
@@ -375,3 +366,28 @@ a:hover {
 .kotlin { background-color: #A97BFF; }
 .shell { background-color: #89e051; }
 .css { background-color: #563d7c; }
+
+.skill-link a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.skill-link a:hover {
+    text-decoration: underline;
+}
+
+.github-commit-history {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.github-commit-history img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
