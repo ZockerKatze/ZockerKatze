@@ -51,11 +51,28 @@ body {
 }
 
 .profile-image {
-    width: 150px;
-    height: 150px;
+    width: 450px;
+    height: auto;
+    min-height: 400px;
     margin-left: 20px;
     border: 2px solid #000;
     overflow: hidden;
+    font-family: monospace;
+    font-size: 12px;
+    line-height: 12px;
+    white-space: pre;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.profile-image pre {
+    margin: 0;
+    font-size: inherit;
+    line-height: inherit;
+    font-family: inherit;
 }
 
 .profile-image img {
@@ -176,7 +193,7 @@ li {
     margin-top: 30px;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 20px; 
     flex-wrap: wrap;
 }
 
@@ -229,7 +246,12 @@ a:hover {
     }
 
     .profile-image {
+        width: 300px;
         margin: 20px 0 0 0;
+        font-size: 8px;
+        line-height: 8px;
+        padding: 15px;
+        min-height: 300px;
     }
 
     .skills-list {
@@ -295,4 +317,61 @@ a:hover {
         padding: 5px 10px;
         font-size: 0.85em;
     }
-} 
+}
+
+.language-stats {
+    background: #1e1e2e;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.language-stats h3 {
+    margin: 0 0 15px 0;
+    color: #ff79c6;
+    font-size: 1.2em;
+}
+
+.language-bar {
+    height: 25px;
+    background: #313244;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    display: flex;
+}
+
+.language-item {
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.language-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9em;
+}
+
+.legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+}
+
+/* Language specific colors */
+.python { background-color: #3572A5; }
+.cpp { background-color: #f34b7d; }
+.html { background-color: #e34c26; }
+.kotlin { background-color: #A97BFF; }
+.shell { background-color: #89e051; }
+.css { background-color: #563d7c; }
