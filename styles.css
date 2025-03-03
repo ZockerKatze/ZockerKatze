@@ -1,7 +1,7 @@
-body {
+html, body {
     background-color: #f4f1ea;
     transition: background-color 0.3s ease;
-
+    display: flex;
     transition: background-color 0.3s ease;
     font-family: 'Special Elite', monospace;
     margin: 0;
@@ -20,6 +20,7 @@ body {
     border: 1px solid #d3d3d3;
     margin: 20px;
     position: relative;
+    flex: 1;
 }
 
 .document::before {
@@ -298,7 +299,7 @@ a:hover {
     transform: translateY(-1px);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
     .language-switch {
         position: relative;
         top: 0;
@@ -394,3 +395,57 @@ a:hover {
     margin-left: auto;
     margin-right: auto;
 }
+
+/*
+Quick CSS Code Comment here
+I FUCKING HATE CSS SO FUCKING MUCH ITS UNBELIEVABLE
+*/
+
+html, body {
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.document {
+    flex: 1; /* Pushes the footer down */
+}
+
+footer a {
+    text-decoration: none !important;
+}
+
+.footer-icons i {
+    padding-top: 20px;
+    padding-right: 10px;
+    font-family: "Font Awesome 5 Free", "Font Awesome 6 Free", sans-serif;
+    font-weight: 900;
+    font-size: 30px;
+    color: #E4405F;
+}
+
+footer {
+    width: 800px;
+    text-align: center;
+    padding: 60px;
+    outline: black solid 1px;
+    outline-width: 1px;
+    outline-style: auto;
+}
+
+/*
+.document {
+    background-color: #fff;
+    max-width: 800px;
+    width: 100%;
+    padding: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border: 1px solid #d3d3d3;
+    margin: 20px;
+    position: relative;
+    flex: 1;
+}
+*/
+
+
