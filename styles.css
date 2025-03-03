@@ -1,5 +1,8 @@
 body {
     background-color: #f4f1ea;
+    transition: background-color 0.3s ease;
+
+    transition: background-color 0.3s ease;
     font-family: 'Special Elite', monospace;
     margin: 0;
     padding: 20px;

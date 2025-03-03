@@ -12,17 +12,67 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 </head>
 <body>
-    <div class="document">
+    <script>
+        // Theme toggle functionality
+        const toggleTheme = () => {
+            const body = document.body;
+            body.classList.toggle('dark-theme');
+        };
+
+        // Smooth scroll functionality
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Fade-in effect for sections
+        const sections = document.querySelectorAll('.info-section, .skills-list, .github-commit-history');
+        const options = {
+            root: null,
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, options);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Animate skill bars
+        const skillBars = document.querySelectorAll('.skills-list li');
+        skillBars.forEach(bar => {
+            const percentage = bar.getAttribute('data-skill-percentage');
+            bar.style.width = percentage;
+        });
+
+    </script>
+
+
+    <div class="document" id="main-content">
+
         <div class="header">
             <div class="header-content">
                 <div class="title-section">
                     <h1>Biography</h1>
                     <div class="language-switch">
-                        <span class="lang-btn active">🇬🇧 English</span>
+                        <span class="lang-btn active" onclick="toggleTheme()">🇬🇧 English</span>
+
                         <a href="index-de.html" class="lang-btn">🇩🇪 Deutsch</a>
                     </div>
                 </div>
-                <div class="profile-image">
+                <div class="profile-image" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+
                     <pre>       .---.
        |---|
        |---|
@@ -110,7 +160,8 @@
                     <li class="skill-link"><a href="https://github.com/ZockerKatze"><i class="devicon-git-plain colored"></i> Git</a></li>
                     <li class="skill-link"><a href="https://github.com/ZockerKatze"><i class="devicon-github-original colored"></i> GitHub</a></li>
                 </ul>
-                <div class="github-commit-history">
+                <div class="github-commit-history" id="github-stats">
+
                     <p><strong>Contributions on GitHub:</strong></p>
                     <img src="https://ghchart.rshah.org/ZockerKatze" alt="GitHub Contribution Graph" title="My GitHub Contribution Graph">
                 </div>
@@ -118,4 +169,4 @@
         </div>
     </div>
 </body>
-</html> 
+</html>
