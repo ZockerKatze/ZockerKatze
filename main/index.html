@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biographical Document</title>
+    <link rel="icon" type="image/svg+xml" href="icon.svg">
+    <link rel="alternate icon" href="icon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <lin rel=stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+</head>
+<body>
+    <script>
+        // Theme toggle functionality
+        const toggleTheme = () => {
+            const body = document.body;
+            body.classList.toggle('dark-theme');
+        };
+
+        // Smooth scroll functionality
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Fade-in effect for sections
+        const sections = document.querySelectorAll('.info-section, .skills-list, .github-commit-history');
+        const options = {
+            root: null,
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, options);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+        // get a5a031a58ca1210a49e242f8d4211e4e3c2cf925d91dd58ef81d36361d69278d from sha256
+        // Animate skill bars
+        const skillBars = document.querySelectorAll('.skills-list li');
+        skillBars.forEach(bar => {
+            const percentage = bar.getAttribute('data-skill-percentage');
+            bar.style.width = percentage;
+        });
+
+    </script>
+
+
+    <div class="document" id="main-content">
+
+        <div class="header">
+            <div class="header-content">
+                <div class="title-section">
+                    <h1>Biography</h1>
+                    <div class="language-switch">
+                        <span class="lang-btn active" onclick="toggleTheme()">🇬🇧 English</span>
+
+                        <a href="index-de.html" class="lang-btn">🇩🇪 Deutsch</a>
+                    </div>
+                </div>
+                <div class="profile-image" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+
+                    <pre>       .---.
+       |---|
+       |---|
+       |---|
+   .---^ - ^---.
+   :___________:
+      |  |//|
+      |  |//|
+      |  |//|
+      |  |//|
+      |  |//|
+      |  |//|
+      |  |.-|
+      |.-'**|
+       \***/
+        \*/
+         V</pre>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="info-section">
+                <p><strong>Born:</strong> March 09, 2010</p>
+                <p class="indent">in Austria</p>
+            </div>
+
+            <div class="info-section">
+                <p><strong>Current Status:</strong></p>
+                <ul class="status-list">
+                    <li>I'm currently working on<a href="https://github.com/ZockerKatze/pfand"> PfandApp</a></li>
+                    <li>I'm currently learning C / C++</li>
+                    <li>I'm looking to collaborate on TGTG-API</li>
+                    <li>All of my projects are available at <a href="https://github.com/ZockerKatze">github.com/ZockerKatze</a></li>
+                    <li>Ask me about The TGTG-API</li>
+                </ul>
+            </div>
+            <div class="info-section">
+                <p><strong>Hobbies:</strong></p>
+                <ul>
+                    <li>Watching Anime</li>
+                    <li>Reading Manga</li>
+                    <li>Coding</li>
+                    <li>Sleeping</li>
+                </ul>
+            </div>
+
+            <div class="info-section">
+                <p><strong>Favorite Monster Flavor:</strong></p>
+                <ul>
+                    <li>White</li>
+                    <li>Ultra Rosá</li>
+                    <li>Mango Loco</li>
+                </ul>
+            </div>
+
+            <div class="info-section">
+                <p><strong>Favorite Programming Language:</strong></p>
+                <ul>
+                    <li>C++</li>
+                    <li>Python</li>
+                </ul>
+            </div>
+            <div class="info-section">
+
+            </div>
+            <div class="info-section">
+                <p><strong>Languages:</strong></p>
+                <ul>
+                    <li>🇩🇪German</li>
+                    <li>🇬🇧English</li>
+                    <li>🇪🇸Spanish</li>
+                    <li>🇷🇺A bit of Russian</li>
+                </ul>
+            </div>
+            <div class="info-section">
+                <p><strong>Skills:</strong></p>
+                <ul class="skills-list">
+                    <li><i class="devicon-cplusplus-plain colored"></i> C++</li>
+                    <li><i class="devicon-c-plain colored"></i> C</li>
+                    <li><i class="devicon-python-plain colored"></i> Python</li>
+                    <li><i class="devicon-html5-plain colored"></i> HTML</li>
+                    <li><i class="devicon-css3-plain colored"></i> CSS</li>
+                    <li><i class="devicon-java-plain colored"></i> Some Java</li>
+                    <li><i class="devicon-docker-plain colored"></i> Docker</li>
+                    <li><i class="devicon-arduino-plain colored"></i> Arduino</li>
+                    <li class="skill-link"><a href="https://github.com/ZockerKatze"><i class="devicon-git-plain colored"></i> Git</a></li>
+                    <li class="skill-link"><a href="https://github.com/ZockerKatze"><i class="devicon-github-original colored"></i> GitHub</a></li>
+                </ul>
+                <div class="github-commit-history" id="github-stats">
+
+                    <p><strong>Contributions on GitHub:</strong></p>
+                    <img src="https://ghchart.rshah.org/ZockerKatze" alt="GitHub Contribution Graph" title="My GitHub Contribution Graph">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--
+
+    Whoever reads this HTML code, may Jesus H. Christ himself be with you !
+
+    -->
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-text">
+                <strong><p>[@ZockerKatze] - All Rights Reserved</p></strong>
+                <hr style="text-align: center; width: 50%"></hr>
+                <p>This Page <strong>(CSS/HTML)</strong> is OSS , its hosted on <strong><a href="https://github.com/ZockerKatze/ZockerKatze">GitHub</a></strong></p>
+                <p>Made with <a href="../secret/secret.html">❤️</a></p>
+                <hr style="width: 10%; text-align: center"></hr>
+                <li class="footer-icons">
+
+                    <!-- GitHub -->
+
+                    <a href="https://www.github.com/zockerkatze/">
+                        <i class="devicon-github-original colored"></i>
+                    </a>
+                </li>
+
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
