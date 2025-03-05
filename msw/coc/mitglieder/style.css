@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: black;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #444;
+    transform: scale(1.05);
+}
+
+.heading h1 {
+    font-size: 3rem;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInDown 1s ease-out forwards;
+}
+
+.listofmitglieder {
+    margin-top: 20px;
+}
+
+.listofmitglieder ul {
+    list-style: none;
+    padding: 0;
+}
+
+.listofmitglieder li {
+    font-size: 1.5rem;
+    padding: 15px 30px;
+    margin: 15px 0; /* Added spacing between elements */
+    border-radius: 25px;
+    transition: transform 0.3s ease, background 0.3s ease;
+    opacity: 0;
+    transform: translateX(-50px);
+    border: 2px solid black;
+    display: inline-block;
+}
+
+.listofmitglieder li:hover {
+    background: rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
+}
+
+@keyframes fadeInDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInList {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
