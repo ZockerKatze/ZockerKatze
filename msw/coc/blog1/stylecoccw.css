@@ -18,6 +18,15 @@
     text-align: center;
 }
 
+div.container {
+    text-align: center;
+}
+
+.centerUL {
+    display: inline-block;
+    text-align: left;
+}
+
 .topbuttons {
     text-align: left;
 }
