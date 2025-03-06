@@ -20,20 +20,30 @@ header {
 }
 
 button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: black;
-    color: white;
+    color: white !important; /* Ensures text stays white */
     border: none;
     padding: 10px 20px;
     border-radius: 8px;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.2s ease;
+    text-align: center;
 }
 
 button a {
     text-decoration: none;
-    color: white;
+    color: white !important; /* Ensures link text stays white */
     font-weight: bold;
 }
+
+button:hover {
+    background-color: #444;
+    transform: scale(1.05);
+}
+
 
 button:hover {
     background-color: #444;
