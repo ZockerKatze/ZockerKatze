@@ -12,7 +12,7 @@
   </tr>
 </table>
 
-- 🔫 I’m currently working on PfandApp / WebSite
+- 🔫 I’m currently working on WebSite
 
 - 🌱 I’m currently learning **C / C++**
 
