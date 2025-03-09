@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geburtstagskalender</title>
+    <script src="script.js" defer></script> <!-- We need defer here so it loads at the start of the website! -->
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0"></script>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <button onclick="prevMonth()">◀</button>
+        <button><a href="../index.html">Zurück zu CoC!</a></button>
+        <h2 id="month-year"></h2>
+        <button onclick="nextMonth()">▶</button>
+    </div>
+    <div class="calendar" id="calendar"></div>
+</div>
+<div id="birthday-popup" class="popup">
+    <h2>🎉 Herzlichen Glückwunsch! 🎉</h2>
+    <p id="birthday-message"></p>
+    <button onclick="closePopup()">Schließen</button>
+</div>
+</body>
+</html>
