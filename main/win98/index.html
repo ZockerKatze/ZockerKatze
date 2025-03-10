@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Windows 98 Compatible Website</title>
+    <title>rendertest?</title>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <style>
         body {
-            background-image: url('vaporwave-bg.gif');
-            background-size: cover;
             background-color: #c0c0c0;
+            background-image: url('vaporwave-bg.gif');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            background-size: cover;
             font-family: Arial, sans-serif;
             color: white;
             text-align: center;
@@ -16,14 +19,13 @@
             width: 80%;
             margin: 20px auto;
             border: 1px solid black;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: black;
         }
         td {
             padding: 10px;
         }
         h1 {
             color: #ff77aa;
-            text-shadow: 2px 2px 5px #000000;
         }
         .footer {
             text-align: center;
@@ -31,17 +33,33 @@
             color: #ffccff;
         }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("year").textContent = new Date().getFullYear();
+        });
+    </script>
+    <noscript>
+        <style>
+            body { display: none; }
+        </style>
+        <meta http-equiv="refresh" content="0;url=javascript_disabled.html">
+    </noscript>
 </head>
 <body>
 <table>
     <tr>
         <td>
-            <h1>Windows 98 was it!</h1>
-            <p>This website is designed to be compatible with old browsers.</p>
-            <p>Long live the 90s!</p>
+            <h1>Is this Rendering?</h1>
+            <p>Yes?<br>That's Good! If this site is loading it means you're using a Proper Browser!</p>
+            <p>This should work for all Browsers (Chromium / Firefox based)</p>
         </td>
     </tr>
 </table>
-<p class="footer">&copy; 2025 - @ZockerKatze</p>
+<p class="footer">&copy; <span id="year"></span> - @ZockerKatze</p>
+<noscript>
+    <script>
+        alert("No JavaScript, either disabled or unsupported!");
+    </script>
+</noscript>
 </body>
 </html>
