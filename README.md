@@ -22,7 +22,7 @@
 
 - 💬 Ask me about **The TGTG-API**
 
-- 📧 How to reach me: **"rattatwinko" on Discord**
+- 📧 How to reach me: **"rattatwinko" on **Discord**
 
 - ⚡ Fun Fact **typeof NaN is "number"**
 
