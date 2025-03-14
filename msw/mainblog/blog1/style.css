@@ -44,7 +44,6 @@ body {
     margin: 10px;
 }
 
-
 .topbuttons:hover {
     background-color: #444;
     transform: scale(1.05);
@@ -100,35 +99,45 @@ div.container {
         width: 80%;
     }
 }
-.tech-list {
-    list-style: none; /* Remove bullet points */
-    padding: 0;
+
+/* This is absolute pain to read*/
+
+.skills-list {
+    list-style-type: none !important;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
-    flex-direction: column;
-    align-items: center; /* Center the list */
-    gap: 12px;
+    flex-wrap: wrap;
+    gap: 15px;
+    text-align: center;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Align items vertically */
 }
 
-.tech-list li {
-    background-color: #fff;
-    padding: 12px 20px;
-    border-radius: 25px;
+.skills-list li {
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-size: 18px;
-    font-weight: bold;
-    width: 260px; /* Set a fixed width for alignment */
-    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.05);
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: transform 0.2s ease;
+    text-align:center;
+    left: 50%;
 }
 
-.tech-list li:hover {
+.skills-list li:hover {
     transform: translateY(-2px);
-    box-shadow: 2px 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.tech-list i {
-    color: #007bff; /* Blue icons for contrast */
-    font-size: 22px;
+.skills-list li.skill-link a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: inherit;
+    text-decoration: none;
+}
+
+.skills-list i {
+    margin-right: 5px;
 }
