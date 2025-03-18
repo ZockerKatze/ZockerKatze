@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+
+<!---------------------------------------------------------------------------------------------
+  -                                                                                           -
+  - This is a test for a Redirect Page, this will probably be the future of the Redirect Page -
+  -                                                                                           -
+  -------------------------------------------------------------------------------------------->
+
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="100;url=main/index.html">
+  <title>Redirecting...</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+      font-family: Arial, sans-serif;
+    }
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #f1f1f1;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+    }
+    .spinner {
+      width: 60px;
+      height: 60px;
+      border: 6px solid rgba(0, 0, 0, 0.2);
+      border-top: 6px solid #007bff;
+      border-radius: 50%;
+      animation: spin 1s ease-in-out infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .text {
+      margin-top: 15px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Spinning Circle Animation -->
+
+<div class="spinner"></div>
+<p class="text">Redirecting...</p>
+
+<!-- Footer -->
+
+<footer>
+  <div>
+    <p>
+      &copy;
+      <script>
+        document.write(new Date().getFullYear())
+      </script>
+    </p>
+  </div>
+</footer>
+
+
+</body>
+</html>

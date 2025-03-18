@@ -1,16 +1,76 @@
-<!-- REDIRECT PAGE -->
 <!DOCTYPE HTML>
 <html lang="en-US">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="1;url=main/index.html">
-  <title>Redirection</title>
+  <meta http-equiv="refresh" content="100;url=main/index.html">
+  <title>Redirecting...</title>
+
+  <!-- EMBED STYLE INTO HTML -->
+
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      background-color: #f4f4f4;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #f1f1f1;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 15px;
+    }
+    a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
 
-<img src="msw/coc/layout/layout.gif" alt="marains layout">
-<br>
-If you are not redirected automatically,
-follow the <a href="main/index.html">link to website</a>
+<!-- MAIN REDIRECT DIV -->
+
+<div class="container">
+  <img src="msw/coc/layout/layout.gif" alt="Marains Layout">
+  <p>You are being redirected...</p>
+  <p>If you are not redirected automatically, click <a href="main/index.html">here</a>.</p>
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+  <div>
+    <a href="https://google.com" style="text-decoration:none; color:black">
+    <p>
+      &copy;
+    <script>
+      document.write(new Date().getFullYear())
+    </script>
+    </p>
+    </a>
+  </div>
+</footer>
+
 </body>
 </html>
