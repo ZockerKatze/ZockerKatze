@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weiterleitung...</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: inline-block;
+      max-width: 500px;
+    }
+    h1 {
+      color: #333;
+    }
+    a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .countdown {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-top: 10px;
+      color: #d9534f;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 15px;
+      font-size: 1em;
+      color: white;
+      background-color: #28a745;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background-color: #218838;
+    }
+  </style>
+  <script>
+    let countdown = 20;
+    function updateTimer() {
+      document.getElementById('timer').textContent = countdown;
+      if (countdown === 0) {
+        window.location.href = "http://australia-findings.gl.at.ply.gg:43678";
+      } else {
+        countdown--;
+        setTimeout(updateTimer, 1000);
+      }
+    }
+    window.onload = updateTimer;
+  </script>
+</head>
+<body>
+
+<div class="container">
+  <h1>Weiterleitung...</h1>
+  <p>Du wirst in <span class="countdown" id="timer">20</span> Sekunden zu einem externen Server weitergeleitet.</p>
+  <p>Falls die Weiterleitung nicht funktioniert, klicke auf den folgenden Link:</p>
+  <p><a href="http://australia-findings.gl.at.ply.gg:43678" target="_blank">http://australia-findings.gl.at.ply.gg:43678</a></p>
+  <p>Dies ist ein PlayIt.GG-Link zu Port 8282.</p>
+  <a class="btn" href="http://australia-findings.gl.at.ply.gg:43678">Jetzt Weiterleiten</a>
+</div>
+
+</body>
+</html>
