@@ -8,14 +8,21 @@
     <link rel="alternate icon" href="icon.svg">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-    <lin rel=stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <link rel=stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
 </head>
 <body>
     <script>
+        /************************************************
+        * This JavaScript is useless , which won't work *
+        ************************************************/
+
+
         // Theme toggle functionality
         const toggleTheme = () => {
             const body = document.body;
@@ -55,8 +62,7 @@
         // Animate skill bars
         const skillBars = document.querySelectorAll('.skills-list li');
         skillBars.forEach(bar => {
-            const percentage = bar.getAttribute('data-skill-percentage');
-            bar.style.width = percentage;
+            bar.style.width = bar.getAttribute('data-skill-percentage');
         });
 
     </script>
@@ -186,10 +192,10 @@
         <div class="footer-content">
             <div class="footer-text">
                 <strong><p>[@ZockerKatze] - All Rights Reserved</p></strong>
-                <hr style="text-align: center; width: 50%"></hr>
+                <hr style="text-align: center; width: 50%">
                 <p>This Page <strong>(CSS/HTML)</strong> is OSS , its hosted on <strong><a href="https://github.com/ZockerKatze/ZockerKatze">GitHub</a></strong></p>
                 <p>Made with <a href="win98/index.html">❤️</a></p>
-                <hr style="width: 10%; text-align: center"></hr>
+                <hr style="width: 10%; text-align: center">
                 <li class="footer-icons">
 
                     <!-- GitHub -->
