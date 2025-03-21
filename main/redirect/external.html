@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirect</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Redirecting...</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -21,30 +20,13 @@
             display: inline-block;
             max-width: 500px;
         }
-        .flag-icon {
-            width: 40px;
-            height: auto;
-            cursor: pointer;
+        h1 {
+            color: #333;
         }
-        .lang-switch {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-        }
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            margin-top: 15px;
-            font-size: 1em;
-            color: white;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        a {
+            color: #007bff;
             text-decoration: none;
-        }
-        .btn:hover {
-            background-color: #0056b3;
+            font-weight: bold;
         }
         .countdown {
             font-size: 1.2em;
@@ -52,39 +34,70 @@
             margin-top: 10px;
             color: #d9534f;
         }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 15px;
+            font-size: 1em;
+            color: white;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .lang-switch {
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            padding: 10px 10px;
+            justify-content: center;
+        }
+
+        .btn:hover {
+            background-color: #218838;
+        }
+
+        hr {
+            width: 50%;
+        }
     </style>
     <script>
-        let countdown = 20;
-        function updateTimer() {
-            document.getElementById('timer').textContent = countdown;
-            if (countdown === 0) {
-                window.location.href = "http://australia-findings.gl.at.ply.gg:43678";
-            } else {
-                countdown--;
-                setTimeout(updateTimer, 1000);
-            }
-        }
-        window.onload = updateTimer;
+        document.addEventListener("DOMContentLoaded", function() {
+            let countdown = 20;
+            const timerElement = document.getElementById("timer");
+
+            const interval = setInterval(() => {
+                    timerElement.textContent = countdown;
+                    if (countdown === 0) {
+                        clearInterval(interval);
+                        window.location.href = "https://australia-findings.gl.at.ply.gg:43678";
+                    }
+                    countdown--;
+                },
+                1000);
+        });
     </script>
 </head>
 <body>
 
-<div class="lang-switch">
-    <a href="external-de.html">
-        <img src="german-flag.png" alt="Deutsch" class="flag-icon">
-    </a>
-    <a href="external-de.html" class="btn">Switch to German</a>
-</div>
-
 <div class="container">
-    <h1>Redirect</h1>
-    <p>You are about to be redirected to an external server:</p>
-    <p>The URL to the server is <a href="http://australia-findings.gl.at.ply.gg:43678" target="_blank">http://australia-findings.gl.at.ply.gg:43678</a></p>
-    <p>This is a PlayIt.GG link to port 8282.</p>
-    <p>You have about <span class="countdown" id="timer">20</span> seconds to read this before you are redirected.</p>
-    <p>Don't worry, the page is safe. No data is being collected, and you can even view the source on GitHub!</p>
-    <a class="btn" href="http://australia-findings.gl.at.ply.gg:43678">Go to Website</a>
-</div>
+    <h1>Redirecting...</h1>
+    <hr>
+    <p>You are about to be redirected to an external server , The Source to which is Open, No Cookies or any User-Data is collected</p>
+    <p>You have <span class="countdown" id="timer">20</span> seconds before the redirect.</p>
 
+    <hr>
+
+    <!-- Buttons -->
+
+    <a class="btn" href="http://australia-findings.gl.at.ply.gg:43678">Go to Website</a>
+    <div class="lang-switch">
+        <a href="external-de.html" class="btn">Deutsch</a>
+    </div>
+
+
+</div>
 </body>
 </html>

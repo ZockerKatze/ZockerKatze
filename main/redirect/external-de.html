@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--suppress ALL -->
 <html lang="de">
 <head>
   <meta charset="UTF-8">
@@ -49,6 +50,19 @@
     .btn:hover {
       background-color: #218838;
     }
+
+    .divider {
+      width: 50%;
+    }
+
+    .lang-switch {
+      display: inline-block;
+      border: none;
+      cursor: pointer;
+      padding: 10px 10px;
+      justify-content: center;
+    }
+
   </style>
   <script>
     let countdown = 20;
@@ -68,11 +82,22 @@
 
 <div class="container">
   <h1>Weiterleitung...</h1>
+  <hr>
+  <p>
+    Der Externe Server ist sicher, er sammelt keine Daten wie (Cookies , Passwörter)
+    </p>
+  <p>Der Server ist OpenSource (HTML ; CSS ; JS)
+  </p>
+  <br>
+  <hr class="divider">
   <p>Du wirst in <span class="countdown" id="timer">20</span> Sekunden zu einem externen Server weitergeleitet.</p>
-  <p>Falls die Weiterleitung nicht funktioniert, klicke auf den folgenden Link:</p>
-  <p><a href="http://australia-findings.gl.at.ply.gg:43678" target="_blank">http://australia-findings.gl.at.ply.gg:43678</a></p>
-  <p>Dies ist ein PlayIt.GG-Link zu Port 8282.</p>
+
+  <!-- buttons -->
+
   <a class="btn" href="http://australia-findings.gl.at.ply.gg:43678">Jetzt Weiterleiten</a>
+  <div class="lang-switch">
+    <a href="external.html" class="btn">🇬🇧 Englisch</a>
+  </div>
 </div>
 
 </body>
