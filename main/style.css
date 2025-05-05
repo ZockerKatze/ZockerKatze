@@ -1,0 +1,317 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Special+Elite&display=swap');
+
+:root {
+    --primary: #3b82f6;
+    --secondary: #10b981;
+    --dark: #1e293b;
+    --light: #f8fafc;
+    --card-bg: #ffffff;
+    --card-border: #e2e8f0;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--light);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+    -webkit-text-size-adjust: 100%;
+}
+
+body.dark {
+    --light: #1e293b;
+    --card-bg: #334155;
+    --card-border: #475569;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    background-color: var(--dark);
+}
+
+.special-font {
+    font-family: 'Special Elite', cursive;
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.skill-bar {
+    height: 8px;
+    border-radius: 4px;
+    background-color: #e2e8f0;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    background-color: var(--primary);
+    transition: width 1s ease-in-out;
+}
+
+.profile-art {
+    font-family: monospace;
+    white-space: pre;
+    line-height: 1.2;
+    color: var(--primary);
+    font-size: 0.6rem;
+}
+
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.theme-toggle {
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: rotate(30deg);
+}
+
+.language-option {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.language-option:hover {
+    transform: scale(1.1);
+}
+
+.language-option.active {
+    border-bottom: 2px solid var(--primary);
+}
+
+.code-container {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    max-width: 100%;
+    width: 100%;
+}
+
+.code-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.code-header {
+    background-color: #1e293b;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-family: 'Courier New', monospace;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.code-run-btn {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background-color 0.2s;
+}
+
+.code-run-btn:hover {
+    background-color: #2563eb;
+}
+
+.code-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.code-snippet {
+    background-color: #1e293b;
+    color: #f8fafc;
+    padding: 1rem;
+    font-family: 'Courier New', monospace;
+    overflow-x: auto;
+    font-size: 0.875rem;
+}
+
+.code-output {
+    background-color: #0f172a;
+    color: #f8fafc;
+    padding: 1rem;
+    font-family: 'Courier New', monospace;
+    border-top: 1px solid #334155;
+    overflow-x: auto;
+    max-height: 200px;
+    overflow-y: auto;
+    font-size: 0.875rem;
+}
+
+.code-output:empty {
+    display: none;
+}
+
+.section-title {
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    bottom: -4px;
+    left: 0;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.section-title:hover::after {
+    transform: scaleX(1);
+}
+
+.monster-can {
+    width: 30px;
+    height: 60px;
+    background: linear-gradient(to bottom, #ff0000, #990000);
+    border-radius: 5px;
+    position: relative;
+    display: inline-block;
+    margin: 0 3px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.monster-can::before {
+    content: 'M';
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.monster-white { background: linear-gradient(to bottom, #ffffff, #cccccc); }
+.monster-rosa { background: linear-gradient(to bottom, #ff99cc, #cc6699); }
+.monster-mango { background: linear-gradient(to bottom, #ffcc00, #ff9900); }
+.monster-paradise { background: linear-gradient(to bottom, #66ff66, #339933); }
+
+.minecraft-icon {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%2342AA03" d="M4,2H20A2,2 0 0,1 22,4V20A2,2 0 0,1 20,22H4A2,2 0 0,1 2,20V4A2,2 0 0,1 4,2M6,6V10H10V12H6V18H10V16H14V18H18V10H14V6H12V10H8V6H6Z"/></svg>');
+    background-size: contain;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.info-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.austrian-flag {
+    display: inline-block;
+    width: 16px;
+    height: 12px;
+    background: linear-gradient(to bottom,
+    red 0%, red 33.33%,
+    white 33.33%, white 66.66%,
+    red 66.66%, red 100%);
+    margin-right: 6px;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+}
+
+.flag-emoji {
+    font-size: 1em;
+    margin-right: 4px;
+    vertical-align: middle;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 640px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .code-snippet, .code-output {
+        padding: 0.75rem;
+        font-size: 0.75rem;
+    }
+
+    .info-card {
+        padding: 0.75rem;
+    }
+
+    .monster-can {
+        width: 25px;
+        height: 50px;
+    }
+
+    .monster-can::before {
+        font-size: 0.8rem;
+    }
+
+    .code-run-btn {
+        padding: 0.2rem 0.5rem;
+        font-size: 0.7rem;
+    }
+
+    .language-option {
+        font-size: 0.9rem;
+    }
+
+    .devicon-github-plain {
+        font-size: 1.5rem;
+    }
+
+    .section-title::after {
+        height: 3px;
+    }
+}

@@ -4,294 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biographical Document</title>
+    <!-- JavaScript -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="script.js" async defer></script>
+    <!-- Styling -->
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Special+Elite&display=swap');
-
-        :root {
-            --primary: #3b82f6;
-            --secondary: #10b981;
-            --dark: #1e293b;
-            --light: #f8fafc;
-            --card-bg: #ffffff;
-            --card-border: #e2e8f0;
-            --text-primary: #1e293b;
-            --text-secondary: #64748b;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--light);
-            color: var(--text-primary);
-            transition: all 0.3s ease;
-        }
-
-        body.dark {
-            --light: #1e293b;
-            --card-bg: #334155;
-            --card-border: #475569;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            background-color: var(--dark);
-        }
-
-        .special-font {
-            font-family: 'Special Elite', cursive;
-        }
-
-        .fade-in {
-            animation: fadeIn 0.8s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .skill-bar {
-            height: 8px;
-            border-radius: 4px;
-            background-color: #e2e8f0;
-            overflow: hidden;
-        }
-
-        .skill-progress {
-            height: 100%;
-            background-color: var(--primary);
-            transition: width 1s ease-in-out;
-        }
-
-        .profile-art {
-            font-family: monospace;
-            white-space: pre;
-            line-height: 1.2;
-            color: var(--primary);
-            font-size: 0.6rem;
-        }
-
-        .nav-link {
-            position: relative;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: var(--primary);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .theme-toggle {
-            transition: transform 0.3s ease;
-        }
-
-        .theme-toggle:hover {
-            transform: rotate(30deg);
-        }
-
-        .language-option {
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .language-option:hover {
-            transform: scale(1.1);
-        }
-
-        .language-option.active {
-            border-bottom: 2px solid var(--primary);
-        }
-
-        .code-container {
-            background-color: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 0.75rem;
-            overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            max-width: 600px;
-        }
-
-        .code-container:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        .code-header {
-            background-color: #1e293b;
-            color: white;
-            padding: 0.5rem 1rem;
-            font-family: 'Courier New', monospace;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .code-run-btn {
-            background-color: #3b82f6;
-            color: white;
-            border: none;
-            padding: 0.25rem 0.75rem;
-            border-radius: 0.25rem;
-            cursor: pointer;
-            font-size: 0.8rem;
-            transition: background-color 0.2s;
-        }
-
-        .code-run-btn:hover {
-            background-color: #2563eb;
-        }
-
-        .code-content {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .code-snippet {
-            background-color: #1e293b;
-            color: #f8fafc;
-            padding: 1rem;
-            font-family: 'Courier New', monospace;
-            overflow-x: auto;
-        }
-
-        .code-output {
-            background-color: #0f172a;
-            color: #f8fafc;
-            padding: 1rem;
-            font-family: 'Courier New', monospace;
-            border-top: 1px solid #334155;
-            overflow-x: auto;
-            max-height: 200px;
-            overflow-y: auto;
-        }
-
-        .code-output:empty {
-            display: none;
-        }
-
-        .section-title {
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 4px;
-            bottom: -4px;
-            left: 0;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-
-        .section-title:hover::after {
-            transform: scaleX(1);
-        }
-
-        .monster-can {
-            width: 40px;
-            height: 80px;
-            background: linear-gradient(to bottom, #ff0000, #990000);
-            border-radius: 5px;
-            position: relative;
-            display: inline-block;
-            margin: 0 5px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-
-        .monster-can::before {
-            content: 'M';
-            position: absolute;
-            color: white;
-            font-weight: bold;
-            font-size: 1.2rem;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .monster-white { background: linear-gradient(to bottom, #ffffff, #cccccc); }
-        .monster-rosa { background: linear-gradient(to bottom, #ff99cc, #cc6699); }
-        .monster-mango { background: linear-gradient(to bottom, #ffcc00, #ff9900); }
-        .monster-paradise { background: linear-gradient(to bottom, #66ff66, #339933); }
-
-        .minecraft-icon {
-            width: 24px;
-            height: 24px;
-            display: inline-block;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%2342AA03" d="M4,2H20A2,2 0 0,1 22,4V20A2,2 0 0,1 20,22H4A2,2 0 0,1 2,20V4A2,2 0 0,1 4,2M6,6V10H10V12H6V18H10V16H14V18H18V10H14V6H12V10H8V6H6Z"/></svg>');
-            background-size: contain;
-            margin-right: 8px;
-            vertical-align: middle;
-        }
-
-        .info-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .info-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .austrian-flag {
-            display: inline-block;
-            width: 20px;
-            height: 15px;
-            background: linear-gradient(to bottom,
-            red 0%, red 33.33%,
-            white 33.33%, white 66.66%,
-            red 66.66%, red 100%);
-            margin-right: 8px;
-            vertical-align: middle;
-            border: 1px solid #ddd;
-        }
-
-        .flag-emoji {
-            font-size: 1.2em;
-            margin-right: 5px;
-            vertical-align: middle;
-        }
-    </style>
 </head>
 <body class="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900">
-<div class="container mx-auto px-4 py-8 flex-grow">
-    <header class="mb-12">
-        <div class="flex justify-between items-center mb-8">
-            <h1 class="text-4xl font-bold special-font">Biography</h1>
-            <div class="flex items-center space-x-4">
+<div class="container mx-auto px-4 py-6 sm:py-8 flex-grow">
+    <header class="mb-8 sm:mb-12">
+        <div class="flex justify-between items-center mb-6 sm:mb-8">
+            <h1 class="text-3xl sm:text-4xl font-bold special-font">Biography</h1>
+            <div class="flex items-center space-x-3 sm:space-x-4">
                 <button id="theme-toggle" class="theme-toggle p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
-                    <i class="fas fa-moon text-xl dark:hidden"></i>
-                    <i class="fas fa-sun text-xl hidden dark:block"></i>
+                    <i class="fas fa-moon text-lg sm:text-xl dark:hidden"></i>
+                    <i class="fas fa-sun text-lg sm:text-xl hidden dark:block"></i>
                 </button>
-                <div class="flex space-x-2">
+                <div class="flex space-x-1 sm:space-x-2">
                     <span class="language-option active" data-lang="en">🇬🇧</span>
                     <span class="language-option" data-lang="de">🇩🇪</span>
                 </div>
             </div>
         </div>
 
-        <div class="flex flex-col md:flex-row items-center gap-8">
-            <div class="code-container">
+        <div class="flex flex-col md:flex-row items-center gap-6 sm:gap-8">
+            <div class="code-container w-full md:w-auto mb-6 sm:mb-0">
                 <div class="code-header">
                     <span>Rust Code</span>
                     <button class="code-run-btn" id="run-rust-code">
@@ -299,7 +40,8 @@
                     </button>
                 </div>
                 <div class="code-content">
-                        <pre class="code-snippet"><code class="language-rust">fn main() {
+                    <!-- Code Block for RS code -->
+                    <pre class="code-snippet"><code class="language-rust">fn main() {
     println!("Hello, I'm ZockerKatze / Rattatwingo!");
 
     let skills = vec![
@@ -320,31 +62,31 @@
                 </div>
             </div>
 
-            <div class="flex-1">
-                <h2 class="text-2xl font-bold mb-4" data-i18n="name">ZockerKatze / Rattatwingo</h2>
-                <p class="text-gray-600 dark:text-gray-300 mb-4" data-i18n="intro">
+            <div class="flex-1 w-full">
+                <h2 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4" data-i18n="name">ZockerKatze / Rattatwingo</h2>
+                <p class="text-gray-600 dark:text-gray-300 mb-3 sm:mb-4 text-sm sm:text-base" data-i18n="intro">
                     Passionate developer with love for coding, anime, energy drinks, and Minecraft.
                 </p>
-                <div class="flex space-x-4">
+                <div class="flex space-x-3 sm:space-x-4">
                     <a href="https://github.com/ZockerKatze" class="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">
-                        <i class="devicon-github-plain text-2xl"></i>
+                        <i class="devicon-github-plain text-xl sm:text-2xl"></i>
                     </a>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="space-y-8">
+    <main class="space-y-6 sm:space-y-8">
         <section class="info-section fade-in">
-            <h2 class="text-2xl font-bold mb-4 border-b pb-2 section-title" data-i18n="personal_info">Personal Information</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <h2 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 border-b pb-2 section-title" data-i18n="personal_info">Personal Information</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 <div class="info-card">
-                    <p><strong data-i18n="born">Born:</strong> <span data-i18n="birth_date">March 09, 2010</span></p>
-                    <p class="ml-4" data-i18n="birth_place"><span class="austrian-flag"></span><span class="flag-emoji">🇦🇹</span> in Austria</p>
+                    <p class="text-sm sm:text-base"><strong data-i18n="born">Born:</strong> <span data-i18n="birth_date">March 09, 2010</span></p>
+                    <p class="ml-4 text-sm sm:text-base" data-i18n="birth_place"><span class="austrian-flag"></span><span class="flag-emoji">🇦🇹</span> in Austria</p>
                 </div>
                 <div class="info-card">
-                    <p><strong data-i18n="languages">Languages:</strong></p>
-                    <ul class="list-disc ml-6">
+                    <p class="text-sm sm:text-base"><strong data-i18n="languages">Languages:</strong></p>
+                    <ul class="list-disc ml-4 sm:ml-6 space-y-1 text-sm sm:text-base">
                         <li data-i18n="german">🇩🇪 German (Native)</li>
                         <li data-i18n="english">🇬🇧 English (Fluent)</li>
                         <li data-i18n="spanish">🇪🇸 Spanish (Intermediate)</li>
@@ -355,9 +97,9 @@
         </section>
 
         <section class="info-section fade-in">
-            <h2 class="text-2xl font-bold mb-4 border-b pb-2 section-title" data-i18n="current_status">Current Status</h2>
+            <h2 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 border-b pb-2 section-title" data-i18n="current_status">Current Status</h2>
             <div class="info-card">
-                <ul class="list-disc ml-6 space-y-2">
+                <ul class="list-disc ml-4 sm:ml-6 space-y-1 text-sm sm:text-base">
                     <li data-i18n="working_on">I'm currently working on private Minecraft plugins on my local Gitea instance</li>
                     <li data-i18n="learning">I'm currently learning Minecraft Plugin Creation with Kotlin and the Bukkit API</li>
                     <li data-i18n="collaborate">I'm looking to collaborate on Minecraft plugins</li>
@@ -368,11 +110,11 @@
         </section>
 
         <section class="info-section fade-in">
-            <h2 class="text-2xl font-bold mb-4 border-b pb-2 section-title" data-i18n="interests">Interests</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <h2 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 border-b pb-2 section-title" data-i18n="interests">Interests</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 <div class="info-card">
-                    <p><strong data-i18n="hobbies">Hobbies:</strong></p>
-                    <ul class="list-disc ml-6">
+                    <p class="text-sm sm:text-base"><strong data-i18n="hobbies">Hobbies:</strong></p>
+                    <ul class="list-disc ml-4 sm:ml-6 space-y-1 text-sm sm:text-base">
                         <li data-i18n="anime">Watching Anime</li>
                         <li data-i18n="manga">Reading Manga</li>
                         <li data-i18n="coding">Coding Minecraft Plugins</li>
@@ -381,8 +123,8 @@
                     </ul>
                 </div>
                 <div class="info-card">
-                    <p><strong data-i18n="monster">Favorite Monster Flavor:</strong></p>
-                    <div class="flex justify-center mt-4">
+                    <p class="text-sm sm:text-base"><strong data-i18n="monster">Favorite Monster Flavor:</strong></p>
+                    <div class="flex justify-center mt-3 sm:mt-4">
                         <div class="monster-can monster-white" title="White"></div>
                         <div class="monster-can monster-rosa" title="Ultra Rosá"></div>
                         <div class="monster-can monster-mango" title="Mango Loco"></div>
@@ -393,15 +135,15 @@
         </section>
 
         <section class="info-section fade-in">
-            <h2 class="text-2xl font-bold mb-4 border-b pb-2 section-title" data-i18n="skills">Skills</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <h2 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 border-b pb-2 section-title" data-i18n="skills">Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 <div class="info-card">
-                    <p><strong data-i18n="programming">Programming Languages:</strong></p>
-                    <ul class="space-y-3 mt-2">
+                    <p class="text-sm sm:text-base"><strong data-i18n="programming">Programming Languages:</strong></p>
+                    <ul class="space-y-2 sm:space-y-3 mt-2">
                         <li>
                             <div class="flex items-center">
-                                <i class="devicon-rust-plain colored text-xl mr-2"></i>
-                                <span>Rust</span>
+                                <i class="devicon-rust-plain colored text-lg sm:text-xl mr-2"></i>
+                                <span class="text-sm sm:text-base">Rust</span>
                             </div>
                             <div class="skill-bar mt-1">
                                 <div class="skill-progress" data-percent="80" style="width: 0%"></div>
@@ -409,8 +151,8 @@
                         </li>
                         <li>
                             <div class="flex items-center">
-                                <i class="devicon-cplusplus-plain colored text-xl mr-2"></i>
-                                <span>C++</span>
+                                <i class="devicon-cplusplus-plain colored text-lg sm:text-xl mr-2"></i>
+                                <span class="text-sm sm:text-base">C++</span>
                             </div>
                             <div class="skill-bar mt-1">
                                 <div class="skill-progress" data-percent="85" style="width: 0%"></div>
@@ -418,8 +160,8 @@
                         </li>
                         <li>
                             <div class="flex items-center">
-                                <i class="devicon-python-plain colored text-xl mr-2"></i>
-                                <span>Python</span>
+                                <i class="devicon-python-plain colored text-lg sm:text-xl mr-2"></i>
+                                <span class="text-sm sm:text-base">Python</span>
                             </div>
                             <div class="skill-bar mt-1">
                                 <div class="skill-progress" data-percent="80" style="width: 0%"></div>
@@ -427,8 +169,8 @@
                         </li>
                         <li>
                             <div class="flex items-center">
-                                <i class="devicon-kotlin-plain colored text-xl mr-2"></i>
-                                <span>Kotlin</span>
+                                <i class="devicon-kotlin-plain colored text-lg sm:text-xl mr-2"></i>
+                                <span class="text-sm sm:text-base">Kotlin</span>
                             </div>
                             <div class="skill-bar mt-1">
                                 <div class="skill-progress" data-percent="70" style="width: 0%"></div>
@@ -437,12 +179,12 @@
                     </ul>
                 </div>
                 <div class="info-card">
-                    <p><strong data-i18n="web">Minecraft & Other Technologies:</strong></p>
-                    <ul class="space-y-3 mt-2">
+                    <p class="text-sm sm:text-base"><strong data-i18n="web">Minecraft & Other Technologies:</strong></p>
+                    <ul class="space-y-2 sm:space-y-3 mt-2">
                         <li>
                             <div class="flex items-center">
                                 <span class="minecraft-icon"></span>
-                                <span>Bukkit API</span>
+                                <span class="text-sm sm:text-base">Bukkit API</span>
                             </div>
                             <div class="skill-bar mt-1">
                                 <div class="skill-progress" data-percent="75" style="width: 0%"></div>
@@ -451,7 +193,7 @@
                         <li>
                             <div class="flex items-center">
                                 <span class="minecraft-icon"></span>
-                                <span>Spigot API</span>
+                                <span class="text-sm sm:text-base">Spigot API</span>
                             </div>
                             <div class="skill-bar mt-1">
                                 <div class="skill-progress" data-percent="65" style="width: 0%"></div>
@@ -459,8 +201,8 @@
                         </li>
                         <li>
                             <div class="flex items-center">
-                                <i class="devicon-docker-plain colored text-xl mr-2"></i>
-                                <span>Docker</span>
+                                <i class="devicon-docker-plain colored text-lg sm:text-xl mr-2"></i>
+                                <span class="text-sm sm:text-base">Docker</span>
                             </div>
                             <div class="skill-bar mt-1">
                                 <div class="skill-progress" data-percent="70" style="width: 0%"></div>
@@ -468,8 +210,8 @@
                         </li>
                         <li>
                             <div class="flex items-center">
-                                <i class="devicon-arduino-plain colored text-xl mr-2"></i>
-                                <span>Arduino</span>
+                                <i class="devicon-arduino-plain colored text-lg sm:text-xl mr-2"></i>
+                                <span class="text-sm sm:text-base">Arduino</span>
                             </div>
                             <div class="skill-bar mt-1">
                                 <div class="skill-progress" data-percent="65" style="width: 0%"></div>
@@ -481,7 +223,7 @@
         </section>
 
         <section class="info-section fade-in">
-            <h2 class="text-2xl font-bold mb-4 border-b pb-2 section-title" data-i18n="github">GitHub Activity</h2>
+            <h2 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 border-b pb-2 section-title" data-i18n="github">GitHub Activity</h2>
             <div class="info-card p-0 overflow-hidden">
                 <img src="https://ghchart.rshah.org/ZockerKatze" alt="GitHub Contribution Graph" class="w-full">
             </div>
@@ -489,215 +231,19 @@
     </main>
 </div>
 
-<footer class="bg-gray-100 dark:bg-gray-800 py-6 mt-12">
+<footer class="bg-gray-100 dark:bg-gray-800 py-4 sm:py-6 mt-8 sm:mt-12">
     <div class="container mx-auto px-4 text-center">
-        <p class="font-bold mb-2">[@ZockerKatze] - All Rights Reserved</p>
+        <p class="font-bold mb-2 text-sm sm:text-base">[@ZockerKatze] - All Rights Reserved</p>
         <hr class="w-1/2 mx-auto border-gray-300 dark:border-gray-700 my-2">
-        <p class="mb-2" data-i18n="footer_oss">This Page (CSS/HTML) is OSS, it's hosted on <a href="https://github.com/ZockerKatze/ZockerKatze" class="text-blue-500 hover:underline">GitHub</a></p>
-        <p class="mb-4" data-i18n="footer_made">Made with <a href="#" class="text-blue-500 hover:underline">❤️</a></p>
-        <div class="flex justify-center space-x-4">
+        <p class="mb-2 text-xs sm:text-sm" data-i18n="footer_oss">This Page (CSS/HTML) is OSS, it's hosted on <a href="https://github.com/ZockerKatze/ZockerKatze" class="text-blue-500 hover:underline">GitHub</a></p>
+        <p class="mb-3 sm:mb-4 text-xs sm:text-sm" data-i18n="footer_made">Made with <a href="#" class="text-blue-500 hover:underline">❤️</a></p>
+        <div class="flex justify-center space-x-3 sm:space-x-4">
             <a href="https://github.com/ZockerKatze" class="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors">
-                <i class="devicon-github-plain text-2xl"></i>
+                <i class="devicon-github-plain text-xl sm:text-2xl"></i>
             </a>
         </div>
     </div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-<script>
-
-    /***************************************************************
-    *  I was too lazy to put the javascript into a seperate file   *
-    ***************************************************************/
-
-    // Initialize syntax highlighting
-    hljs.highlightAll();
-
-    // Theme toggle functionality
-    const themeToggle = document.getElementById('theme-toggle');
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-
-    // Check for saved theme preference or use system preference
-    const currentTheme = localStorage.getItem('theme') ||
-        (prefersDarkScheme.matches ? 'dark' : 'light');
-
-    if (currentTheme === 'dark') {
-        document.body.classList.add('dark');
-    }
-
-    themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark');
-        const theme = document.body.classList.contains('dark') ? 'dark' : 'light';
-        localStorage.setItem('theme', theme);
-    });
-
-    // Language toggle functionality
-    const languageOptions = document.querySelectorAll('.language-option');
-    const elementsToTranslate = document.querySelectorAll('[data-i18n]');
-
-    // Translations
-    const translations = {
-        en: {
-            name: "ZockerKatze / Rattatwingo",
-            intro: "Passionate developer with love for coding, anime, energy drinks, and Minecraft.",
-            personal_info: "Personal Information",
-            born: "Born:",
-            birth_date: "March 09, 2010",
-            birth_place: "in Austria",
-            languages: "Languages:",
-            german: "🇩🇪 German (Native)",
-            english: "🇬🇧 English (Fluent)",
-            spanish: "🇪🇸 Spanish (Intermediate)",
-            russian: "🇷🇺 Russian (Basic)",
-            current_status: "Current Status",
-            working_on: "I'm currently working on private Minecraft plugins on my local Gitea instance",
-            learning: "I'm currently learning Minecraft Plugin Creation with Kotlin and the Bukkit API",
-            collaborate: "I'm looking to collaborate on Minecraft plugins",
-            projects: "Some of my projects are available at github.com/ZockerKatze",
-            ask_me: "Ask me about Minecraft plugins and the Bukkit API",
-            interests: "Interests",
-            hobbies: "Hobbies:",
-            anime: "Watching Anime",
-            manga: "Reading Manga",
-            coding: "Coding Minecraft Plugins",
-            sleeping: "Sleeping",
-            minecraft: "Playing Minecraft",
-            monster: "Favorite Monster Flavor:",
-            white: "White",
-            rosa: "Ultra Rosá",
-            mango: "Mango Loco",
-            paradise: "Ultra Paradise",
-            skills: "Skills",
-            programming: "Programming Languages:",
-            web: "Minecraft & Other Technologies:",
-            github: "GitHub Activity",
-            footer_oss: "This Page (CSS/HTML) is OSS, it's hosted on GitHub",
-            footer_made: "Made with ❤️"
-        },
-        de: {
-            name: "ZockerKatze / Rattatwingo",
-            intro: "Leidenschaftlicher Entwickler mit Liebe zum Programmieren, Anime, Energy Drinks und Minecraft.",
-            personal_info: "Persönliche Informationen",
-            born: "Geboren:",
-            birth_date: "09. März 2010",
-            birth_place: "in Österreich",
-            languages: "Sprachen:",
-            german: "🇩🇪 Deutsch (Muttersprache)",
-            english: "🇬🇧 Englisch (Fließend)",
-            spanish: "🇪🇸 Spanisch (Mittelstufe)",
-            russian: "🇷🇺 Russisch (Grundkenntnisse)",
-            current_status: "Aktueller Status",
-            working_on: "Ich arbeite derzeit an privaten Minecraft Plugins auf meiner lokalen Gitea Instanz",
-            learning: "Ich lerne derzeit Minecraft Plugin Entwicklung mit Kotlin und der Bukkit API",
-            collaborate: "Ich möchte an Minecraft Plugins zusammenarbeiten",
-            projects: "Einige meiner Projekte sind auf github.com/ZockerKatze verfügbar",
-            ask_me: "Frag mich über Minecraft Plugins und die Bukkit API",
-            interests: "Interessen",
-            hobbies: "Hobbys:",
-            anime: "Anime schauen",
-            manga: "Manga lesen",
-            coding: "Minecraft Plugins programmieren",
-            sleeping: "Schlafen",
-            minecraft: "Minecraft spielen",
-            monster: "Lieblings Monster Geschmack:",
-            white: "White",
-            rosa: "Ultra Rosá",
-            mango: "Mango Loco",
-            paradise: "Ultra Paradise",
-            skills: "Fähigkeiten",
-            programming: "Programmiersprachen:",
-            web: "Minecraft & Andere Technologien:",
-            github: "GitHub Aktivität",
-            footer_oss: "Diese Seite (CSS/HTML) ist Open Source, sie wird auf GitHub gehostet",
-            footer_made: "Gemacht mit ❤️"
-        }
-    };
-
-    // Set active language
-    function setActiveLanguage(lang) {
-        languageOptions.forEach(option => {
-            option.classList.toggle('active', option.dataset.lang === lang);
-        });
-
-        // Update translations
-        elementsToTranslate.forEach(element => {
-            const key = element.dataset.i18n;
-            if (translations[lang] && translations[lang][key]) {
-                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                    element.value = translations[lang][key];
-                } else {
-                    element.textContent = translations[lang][key];
-                }
-            }
-        });
-
-        localStorage.setItem('language', lang);
-    }
-
-    // Initialize language
-    const savedLanguage = localStorage.getItem('language') || 'en';
-    setActiveLanguage(savedLanguage);
-
-    // Add click event to language options
-    languageOptions.forEach(option => {
-        option.addEventListener('click', () => {
-            const lang = option.dataset.lang;
-            setActiveLanguage(lang);
-        });
-    });
-
-    // Intersection Observer for fade-in effects
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
-
-                // Animate skill bars if this is the skills section
-                if (entry.target.querySelector('.skill-progress')) {
-                    const skillBars = entry.target.querySelectorAll('.skill-progress');
-                    skillBars.forEach(bar => {
-                        const percent = bar.dataset.percent;
-                        bar.style.width = `${percent}%`;
-                    });
-                }
-
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.info-section').forEach(section => {
-        observer.observe(section);
-    });
-
-    // Run Rust code functionality
-    document.getElementById('run-rust-code').addEventListener('click', function() {
-        const output = document.getElementById('rust-output');
-        output.innerHTML = ''; // Clear previous output
-        output.style.display = 'block'; // Show output area
-
-        // Simulate Rust code execution
-        const lines = [
-            "Hello, I'm ZockerKatze / Rattatwingo!",
-            "- Rust",
-            "- Python",
-            "- Kotlin",
-            "- Minecraft Plugins",
-            "- Bukkit API",
-            "Let's build some awesome Minecraft plugins!"
-        ];
-
-        let delay = 0;
-        lines.forEach(line => {
-            setTimeout(() => {
-                const div = document.createElement('div');
-                div.textContent = line;
-                output.appendChild(div);
-                output.scrollTop = output.scrollHeight;
-            }, delay);
-            delay += 200;
-        });
-    });
-</script>
 </body>
 </html>
