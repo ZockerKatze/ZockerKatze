@@ -33,7 +33,7 @@ const elementsToTranslate = document.querySelectorAll('[data-i18n]');
 const translations = {
     en: {
         name: "ZockerKatze / Rattatwingo",
-        intro: "Passionate developer with love for coding, anime, energy drinks, and Minecraft.",
+        intro: "Passionate developer with love for coding, anime and Minecraft.",
         personal_info: "Personal Information",
         born: "Born:",
         birth_date: "March 09, 2010",
@@ -70,7 +70,7 @@ const translations = {
     },
     de: {
         name: "ZockerKatze / Rattatwingo",
-        intro: "Leidenschaftlicher Entwickler mit Liebe zum Programmieren, Anime, Energy Drinks und Minecraft.",
+        intro: "Leidenschaftlicher Entwickler mit Liebe zum Programmieren, Anime und Minecraft.",
         personal_info: "Persönliche Informationen",
         born: "Geboren:",
         birth_date: "09. März 2010",
