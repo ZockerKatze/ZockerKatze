@@ -2,6 +2,7 @@
 * Some Syntax may not be correct here ; but who cares                   *
 * The Formatting is also not the "prettiest" but you can work it out    *
 * Written 5.5.2025 ; &copy                                              *
+ *                          Updated 7.5.2025                            *
 *************************************************************************/
 
 // Initialize syntax highlighting
@@ -23,6 +24,24 @@ themeToggle.addEventListener('click', () => {
     document.body.classList.toggle('dark');
     const theme = document.body.classList.contains('dark') ? 'dark' : 'light';
     localStorage.setItem('theme', theme);
+});
+
+// Code tab functionality
+const codeTabs = document.querySelectorAll('.code-tab');
+const codeSnippets = document.querySelectorAll('.code-snippet');
+
+codeTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        // Set active tab
+        codeTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        // Show corresponding code snippet
+        const lang = tab.dataset.lang;
+        codeSnippets.forEach(snippet => {
+            snippet.classList.toggle('active', snippet.dataset.lang === lang);
+        });
+    });
 });
 
 // Language toggle functionality
@@ -111,18 +130,18 @@ const translations = {
 function setActiveLanguage(lang) {
     languageOptions.forEach(option => {
         option.classList.toggle('active', option.dataset.lang === lang);
-});
+    });
 
-// Update translations
-elementsToTranslate.forEach(element => {
-    const key = element.dataset.i18n;
-    if (translations[lang] && translations[lang][key]) {
-        if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-            element.value = translations[lang][key];
-        } else {
-        element.textContent = translations[lang][key];
+    // Update translations
+    elementsToTranslate.forEach(element => {
+        const key = element.dataset.i18n;
+        if (translations[lang] && translations[lang][key]) {
+            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                element.value = translations[lang][key];
+            } else {
+                element.textContent = translations[lang][key];
+            }
         }
-    }
     });
 
     localStorage.setItem('language', lang);
@@ -142,45 +161,50 @@ languageOptions.forEach(option => {
 
 // Intersection Observer for fade-in effects
 const observer = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-    if (entry.isIntersecting) {
-        entry.target.classList.add('fade-in');
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
 
-        // Animate skill bars if this is the skills section
-        if (entry.target.querySelector('.skill-progress')) {
-            const skillBars = entry.target.querySelectorAll('.skill-progress');
-            skillBars.forEach(bar => {
-                const percent = bar.dataset.percent;
-                bar.style.width = `${percent}%`;
-            });
+            // Animate skill bars if this is the skills section
+            if (entry.target.querySelector('.skill-progress')) {
+                const skillBars = entry.target.querySelectorAll('.skill-progress');
+                skillBars.forEach(bar => {
+                    const percent = bar.dataset.percent;
+                    bar.style.width = `${percent}%`;
+                });
+            }
+
+            observer.unobserve(entry.target);
         }
-
-        observer.unobserve(entry.target);
-    }
-});
+    });
 }, { threshold: 0.1 });
 
 document.querySelectorAll('.info-section').forEach(section => {
     observer.observe(section);
 });
 
-// Run Rust code functionality
-document.getElementById('run-rust-code').addEventListener('click', function() {
-    const output = document.getElementById('rust-output');
+// Run code functionality
+document.getElementById('run-code').addEventListener('click', function() {
+    const output = document.getElementById('code-output');
     output.innerHTML = ''; // Clear previous output
     output.style.display = 'block'; // Show output area
 
-    // Simulate Rust code execution
+    // Get the active language
+    const activeTab = document.querySelector('.code-tab.active');
+    const lang = activeTab.dataset.lang;
+
+    // Common output lines
     const lines = [
-    "Hello, I'm ZockerKatze / Rattatwingo!",
-    "- Rust",
-    "- Python",
-    "- Kotlin",
-    "- Minecraft Plugins",
-    "- Bukkit API",
-    "Let's build some awesome Minecraft plugins!"
+        "Hello, I'm ZockerKatze / Rattatwingo!",
+        `- ${getLanguageName(lang)}`,
+        "- Python",
+        "- Kotlin",
+        "- Minecraft Plugins",
+        "- Bukkit API",
+        "Let's build some awesome Minecraft plugins!"
     ];
 
+    // Simulate execution with typing effect
     let delay = 0;
     lines.forEach(line => {
         setTimeout(() => {
@@ -190,5 +214,16 @@ document.getElementById('run-rust-code').addEventListener('click', function() {
             output.scrollTop = output.scrollHeight;
         }, delay);
         delay += 200;
+    });
 });
-});
+
+// Helper function to get proper language name
+function getLanguageName(lang) {
+    switch(lang) {
+        case 'rust': return 'Rust';
+        case 'cpp': return 'C++';
+        case 'python': return 'Python';
+        case 'kotlin': return 'Kotlin';
+        default: return lang;
+    }
+}
